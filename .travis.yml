@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -f 2.0.5.Dockerfile .
+  - docker build -f 2.0.6.Dockerfile .

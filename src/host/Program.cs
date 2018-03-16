@@ -23,8 +23,15 @@ namespace sqlclient.runtime.test
                 Targets = new[] { typeof(Program).Assembly.Location }
             };
 
-            new TaskExecutor(runner).Execute();
-            // BuildWebHost(args).Run();
+            try
+            {
+                new TaskExecutor(runner).Execute();
+            }
+            catch(SqlException)
+            {
+                Console.WriteLine("App finished.");
+            }
+            
         }
 
         // public static IWebHost BuildWebHost(string[] args) =>
