@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Data.SqlClient;
-using classlib;
+using FluentMigrator.Runner.Announcers;
+using FluentMigrator.Runner.Initialization;
 
 namespace sqlclient.runtime.test
 {
@@ -22,10 +26,10 @@ namespace sqlclient.runtime.test
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            var class1 = new Datab();
-            class1.MigrateDatabase("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PaymentLocal;Integrated Security=True;");
-            //class1.MigrateDatabase("Data Source=someserver\\MSSQLLocalDB;Initial Catalog=PaymentLocal;Integrated Security=True;");
-            
+            var connectionInfo = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PaymentLocal;Integrated Security=True;";
+            //var connectionInfo = "Data Source=someserver\\MSSQLLocalDB;Initial Catalog=PaymentLocal;Integrated Security=True;";
+            MigrateDatabase(connectionInfo);            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -35,6 +39,18 @@ namespace sqlclient.runtime.test
             {
                 await context.Response.WriteAsync("Hello World!");
             });
+        }
+
+        public void MigrateDatabase(string connectionString, TextWriter output = null)
+        {
+            var runner = new RunnerContext(new TextWriterAnnouncer(output ?? Console.Out))
+            {
+                Database = "SqlServer",
+                Connection = connectionString,
+                Targets = new[] { typeof(Startup).Assembly.Location }
+            };
+
+            new TaskExecutor(runner).Execute();
         }
     }
 }

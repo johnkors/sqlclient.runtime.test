@@ -23,9 +23,13 @@
     ".NETCoreApp,Version=v2.0": {
       "host/1.0.0": {
         "dependencies": {
+          "Dapper": "1.50.1",
+          "FluentMigrator": "1.6.2",
+          "FluentMigrator.Runner": "1.6.2",
           "Microsoft.AspNetCore.All": "2.0.5",
           "Microsoft.NETCore.App": "2.0.0",
-          "classlib": "1.0.0"
+          "System.Configuration.ConfigurationManager": "4.4.1",
+          "System.Data.SqlClient": "4.4.2"
         },
         "runtime": {
           "host.dll": {}
@@ -3864,21 +3868,6 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "classlib/1.0.0": {
-        "dependencies": {
-          "Dapper": "1.50.1",
-          "FluentMigrator": "1.6.2",
-          "FluentMigrator.Runner": "1.6.2",
-          "System.Configuration.ConfigurationManager": "4.4.1",
-          "System.Data.SqlClient": "4.4.2"
-        },
-        "runtime": {
-          "classlib.dll": {}
-        },
-        "compile": {
-          "classlib.dll": {}
-        }
-      },
       "Microsoft.NETCore.App/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0",
@@ -6272,11 +6261,6 @@
       "path": "windowsazure.storage/8.1.4",
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512",
       "runtimeStoreManifestName": "aspnetcore-store-2.0.0-linux-x64.xml;aspnetcore-store-2.0.0-osx-x64.xml;aspnetcore-store-2.0.0-win7-x64.xml;aspnetcore-store-2.0.0-win7-x86.xml"
-    },
-    "classlib/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "Microsoft.NETCore.App/2.0.0": {
       "type": "package",

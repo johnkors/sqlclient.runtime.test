@@ -9,11 +9,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />    
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />   
+    <PackageReference Include="Dapper" Version="1.50.1" />
+    <PackageReference Include="FluentMigrator" version="1.6.2" />      
+    <PackageReference Include="FluentMigrator.Runner" version="1.6.2" />    
+    
+    <!-- Runtime error from FluentMigrator if not included -->
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />      
+    
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.2" />     
   </ItemGroup>
 
   <ItemGroup>    
-    <ProjectReference Include="..\classlib\classlib.csproj" />
+    <!-- <ProjectReference Include="..\classlib\classlib.csproj" /> -->
   </ItemGroup>
 
 </Project>
