@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using FluentMigrator.Runner.Announcers;
 using FluentMigrator.Runner.Initialization;
 
-namespace sqlclient.runtime.test
+namespace host
 {
     public class Program
     {
