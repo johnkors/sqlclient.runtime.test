@@ -24,7 +24,7 @@ namespace classlib
                 Targets = new[] { typeof(Datab).Assembly.Location }
             };
 
-            new TaskExecutor(runner).Execute();
+            //new TaskExecutor(runner).Execute();
         }
 
         public string GenerateUniqueDatabaseName(string originialConnectionString)
@@ -52,7 +52,7 @@ namespace classlib
 
                 using (SqlCommand createDbCommand = sqlConnection.CreateCommand())
                 {
-                    createDbCommand.CommandTimeout = 30;
+                    createDbCommand.CommandTimeout = 1;
                     var command = string.Format(
 @"if db_id('{0}') is null
 BEGIN

@@ -23,7 +23,7 @@ namespace sqlclient.runtime.test
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             var class1 = new Datab();
-            class1.MigrateDatabase("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=PaymentLocal;Integrated Security=True;");
+            class1.MigrateDatabase("Data Source=someserver01\\MSSQLLocalDB;Initial Catalog=PaymentLocal;Integrated Security=True;");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
