@@ -1,5 +1,9 @@
-FROM microsoft/aspnetcore:2.0.5
+FROM microsoft/dotnet:2.0-sdk AS build
+WORKDIR /app/dotnetapp
+COPY . .
+RUN dotnet publish ./src/host/host.csproj -o ./../../output
 
-COPY /output ./output
-
-RUN dotnet output/host.dll
+FROM microsoft/aspnetcore:2.0.5 as web
+WORKDIR /app
+COPY --from=build /app/dotnetapp/output ./
+RUN dotnet host.dll
