@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    
+      
     <PackageReference Include="Dapper" Version="1.50.1" />
     <PackageReference Include="FluentMigrator" version="1.6.2" />      
     <PackageReference Include="FluentMigrator.Runner" version="1.6.2" />    
