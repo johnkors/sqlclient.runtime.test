@@ -14,7 +14,7 @@ namespace sqlclient.runtime.test
     {
         public static void Main(string[] args)
         {
-            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyDb;Integrated Security=True;";            
+            var connectionString = "Data Source=wackyserver\\MSSQLLocalDB;Initial Catalog=MyDb;Integrated Security=True;";            
 
             var runner = new RunnerContext(new TextWriterAnnouncer(Console.Out))
             {
