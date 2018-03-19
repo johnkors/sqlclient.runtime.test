@@ -9,7 +9,7 @@ namespace host
     {
         public static void Main(string[] args)
         {
-            var connectionString = "Data Source=wackyserver\\MSSQLLocalDB;Initial Catalog=MyDb;Integrated Security=True;";            
+            var connectionString = "Data Source=wackyserver\\MSSQLLocalDB;Initial Catalog=MyDb;Integrated Security=True;Connect Timeout=3";            
 
             var runner = new RunnerContext(new TextWriterAnnouncer(Console.Out))
             {
